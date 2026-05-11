@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Performance Analyzer</title>
+  <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
+  <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+  <py-config>
+    packages = ['numpy', 'matplotlib']
+  </py-config>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e8f0fe;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      color: #1a237e;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+    }
+    select, input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0 15px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #1a237e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+    #output {
+      margin-top: 15px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    #graph {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Student Performance Analyzer</h1>
+
+  <div class="box">
+    <label>Select Activity:</label>
+    <select id="activity">
+      <option value="">-- Choose --</option>
+      <option>Drill 1</option>
+      <option>Drill 2</option>
+      <option>Seatwork 1</option>
+      <option>Seatwork 2</option>
+      <option>Skills Test</option>
+      <option>Quarter Project</option>
+    </select>
+
+    <label>Enter Score:</label>
+    <input type="number" id="score" placeholder="e.g. 20">
+
+    <button py-click="add_score">Submit</button>
+    <button py-click="reset_all" style="background-color: #c0392b;">Reset</button>
+
+    <div id="output">No scores yet.</div>
+  </div>
+
+  <div id="graph"></div>
+
+  <py-script src="main.py"></py-script>
+
+</body>
+</html>
